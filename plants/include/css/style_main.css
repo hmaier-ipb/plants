@@ -1,0 +1,126 @@
+/*
+Code inspired from: https://github.com/developedbyed/3d-card-effect
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*bestimmt worauf sich Abmessungen beziehen*/
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center; /*center on y-Axis*/
+  justify-content: center; /*center on x-Axis*/
+  font-family: monospace;
+  background: linear-gradient(
+    to right, #38baba, #335ae8
+  );
+
+}
+
+body button{
+  border: none;
+  border-radius: 12px;
+  padding: 7px 15px;
+  background-color: #1961d4;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 100px;
+  color: #eeeeee;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+body button:hover{
+  cursor: pointer;
+  background-color: #33adff;
+  color: bisque;
+}
+
+
+/*scroll parent*/
+.scroll-container{
+  min-height: 100vh;
+  max-width: 120vh;
+  display: flex;
+  align-items: center; /*center on y-Axis*/
+  justify-content: center; /*center on x-Axis*/
+  flex-wrap: wrap;
+  /*background-color: #1961d4;*/
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+
+
+}
+
+
+/*scroll child*/
+.card{
+  scroll-snap-align: start;
+  background-color: darkgoldenrod;
+  min-height: 45vh;
+  width: 60%;
+  border-radius: 50px;
+  margin: 0rem 5rem;
+  padding: 5rem 5rem; /*top&bottom = 0rem, left&right = 5rem*/
+  /*box-shadow: 0px 10px 20px rgba(79, 124, 119, 0.8);*/
+  box-shadow: 40px 40px 20px rgba(79, 124, 119, 0.8); /* offset-x | offset-y | blur-radius | color */
+}
+
+.plant {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plant img{
+  width: 25rem;
+  z-index: 2; /*corresponds with .circle z-index 1*/
+}
+
+.circle{
+  width: 30rem;
+  height: 30rem;
+  background: linear-gradient(
+  to top, #856936, #f5b638
+  );
+  border-radius: 50%;
+  z-index: 1;/*corresponds with .plant img z-index 2*/
+  position: absolute;
+}
+
+.info h1{
+  font-size: 1.3rem;
+  padding: 1rem 0rem;
+}
+
+.info h3{
+  font-size: 1.3rem;
+  padding: 3rem 0rem;
+
+}
+
+.quantity{
+  font-size: 1.3rem;
+  display: flex;
+}
+
+.quantity input{
+  width: 3vw;
+}
+
+.purchase{
+  margin-top: 5rem;
+}
+
+.purchase button{
+  width: 100%;
+
+}
+
+
+
