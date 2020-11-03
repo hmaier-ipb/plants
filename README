@@ -1,0 +1,15 @@
+HTML inside content.class.php:
+  ->card_html: CSS stored in style_main.css
+  ->dropdown_html: CSS stored in style_main.css
+
+scroll-snap-type wurde auf <html> angewendet, da es auf <body> nicht funktioniert
+obwohl <body> das parent-element für .top und .bot ist. sehr mystisch...
+
+
+
+ARRAY-STRUCTURE ZU card_html():
+$array = ["plant"=>["image path","plant name","plant description"]]
+
+ARRAY-STRUCTURE ZU dropdown_html():
+$array = [["colum",[["link1", "description1"],["link2", "description2"]]]]
+
