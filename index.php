@@ -36,6 +36,6 @@ $dropdown_content = [
   ];
 $vars["dropdown"] = $content->dropdown_html($dropdown_content);
 
-$tpl = ["main"=>"main.html"];
+$tpl = ["m"=>"main.html","co"=>"checkout.html"];
 $smarty_object->assign($vars);
-$smarty_object->display($tpl["main"]);
+$smarty_object->display($tpl["co"]);

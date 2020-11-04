@@ -65,4 +65,7 @@ class content
     return $output;
   }
 
+  function checkout_html(){
+    $output = "";
+  }
 }

@@ -98,9 +98,13 @@ function addItemToCart(title, price, imageSrc) {
     shopping_cart_items.append(checkout);
   } else {
     //removing the last button and append it to the end
+    //because you dont want to have a checkout button after each cart row
     bottomDiv[0].remove();
     shopping_cart_items.append(checkout);
   }
+  //when a cart row is appended to cart_items div (shopping cart)
+  //the event listeners for all inputs get activated
+  //and the total gets updated
   removeAddEventListener();
   quantityAddEventListener();
   updateTotal();

@@ -1,7 +1,7 @@
 <?php
 class db
 {
-
+  //the standard database login credentials
   protected $host = "127.0.0.1";
   protected $user = "www-data";
   protected $pwd = "";
