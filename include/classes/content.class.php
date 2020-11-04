@@ -24,7 +24,6 @@ class content
       $plantname = $info[1];
       $description = $info[2];
       $price = $info[3];
-      $output .= "<div class='overlay'><img src='/plants/include/media/$image' alt='image'></div>";
       $output .= "<div class='card'>
             <div class='info'>
             <div class='plant'>

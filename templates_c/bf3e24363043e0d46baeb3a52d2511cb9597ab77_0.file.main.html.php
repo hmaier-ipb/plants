@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-04 09:05:58
+/* Smarty version 3.1.34-dev-7, created on 2020-11-04 13:20:12
   from 'D:\inetpub\www\plants\templates\main.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fa26ef6a5d3a3_72320025',
+  'unifunc' => 'content_5fa2aa8cea6883_88061157',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf3e24363043e0d46baeb3a52d2511cb9597ab77' => 
     array (
       0 => 'D:\\inetpub\\www\\plants\\templates\\main.html',
-      1 => 1604480754,
+      1 => 1604496010,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fa26ef6a5d3a3_72320025 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa2aa8cea6883_88061157 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,12 +43,13 @@ function content_5fa26ef6a5d3a3_72320025 (Smarty_Internal_Template $_smarty_tpl)
 
   </div>
   <div class="bot">
-    <div class="overlay"></div>
+
     <?php echo $_smarty_tpl->tpl_vars['products']->value;?>
 
     <div class="cart_items">
       <h3>Shopping Cart</h3>
     </div>
+
   </div>
   <?php echo $_smarty_tpl->tpl_vars['checkout']->value;?>
 

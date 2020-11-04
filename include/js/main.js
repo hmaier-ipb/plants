@@ -4,7 +4,7 @@ function init_main() {
 
   //add an event listener to all addToCartButtons (in every product-card)
   var addToCartButtons = document.getElementsByClassName("add-to-cart-buttons");
-  for (let i = 0; i < addToCartButtons.length; i++) {
+  for (var i = 0; i < addToCartButtons.length; i++) {
     //the [i] ensures that every button in the "add-to-class-buttons"-Class gets an eventlistener by itself
     //[i] = on what iteration we are right now
     var addToCartButton = addToCartButtons[i];
@@ -34,12 +34,13 @@ function quantityAddEventListener() {
     quantityInput.addEventListener("change", quantityChanged)
   }
 }
-
+//hier liegt der fehler!
+//beim checkout wird das cart_items div gelöscht
 function checkoutAddEventListener(){
   var checkoutButton = document.getElementsByClassName("checkout_button");
   var bottomDiv = document.getElementsByClassName("bot")[0];
   var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
-  var shopping_cart_items = document.getElementsByClassName("cart_items")[0];
+  var cart_items = document.getElementsByClassName("cart_items")[0];
   //right div on the checkoutDiv
   var checkout_shopping_cart = document.getElementsByClassName("shopping-cart")[0];
   for(var i = 0; i < checkoutButton.length; i++){
@@ -48,9 +49,11 @@ function checkoutAddEventListener(){
       bottomDiv.style.display = "none";
       checkoutDiv.style.display = "flex";
       //copying the shopping cart (all functions remain) into
-      checkout_shopping_cart.append(shopping_cart_items);
+      console.log(checkout_shopping_cart);
+      console.log(cart_items);
+      checkout_shopping_cart.append(cart_items); //vielleicht liegt der fehler hier??!?!?1
       //removing/disappearing the checkout button
-      this.remove();
+      this.style.display = "none";
       placeOrderAddEventListener();
     });
 
@@ -72,6 +75,7 @@ function placeOrderAddEventListener(){
 function addToCartClicked(event) {
   //event is the object linked to the specific button clicked
   //the target is the button clicked on
+  console.log("addToCartClicked");
   var buttonClicked = event.target;
   var cart = document.getElementsByClassName("cart_items")[0];
   cart.style.display = "block";
@@ -87,23 +91,29 @@ function addToCartClicked(event) {
 
 }
 
+
+
 function removeFromCartClicked(event) {
+  console.log("removeFromCartClicked");
   //removing the cart row in which the button was clicked
   var buttonClicked = event.target;
+  console.log(buttonClicked.parentElement.parentElement);
   buttonClicked.parentElement.parentElement.remove();
   //vars for removing the checkout button
   var shopping_cart_items = document.getElementsByClassName("cart_items")[0];
   //synonymous for cart-rows
   var cartItemNames = shopping_cart_items.getElementsByClassName("item-title");
-  var checkoutButton = document.getElementsByClassName("checkout_button");
   updateTotal();
+
   //if there are no more cart-rows in the shopping-cart: the cart disappears
   if (cartItemNames.length <= 0) {
+    var checkoutButton = document.getElementsByClassName("checkout_button");
     checkoutButton[0].remove();
     var totalOutput = shopping_cart_items.getElementsByClassName("total")[0];
     totalOutput.innerHTML = "";
     var cart = document.getElementsByClassName("cart_items")[0];
     cart.style.display = "none";
+    returnToBottomDiv();
   }
 
 }
@@ -121,10 +131,12 @@ function placeOrderClicked(event){
 * */
 
 function addItemToCart(title, price, imageSrc) {
+  console.log("addItemToCart");
   //creating the two divs for append an item to the list and the checkout button
   var cartRow = document.createElement("div");
   var checkoutRow = document.createElement("div");
   var shopping_cart_items = document.getElementsByClassName("cart_items")[0];
+  var checkout_shopping_cart = document.getElementsByClassName("shopping-cart")[0];
   var cartItemNames = shopping_cart_items.getElementsByClassName("item-title");
   //this for loop gets a hold of redundant cart-rows
   //checks if title is already existing
@@ -150,8 +162,11 @@ function addItemToCart(title, price, imageSrc) {
       </div>
       </div>
     </div>`;
+
   cartRow.innerHTML = cartRowContent;
+  console.log(shopping_cart_items);
   shopping_cart_items.append(cartRow);
+
   //creating a checkout button and total price span
   var bottomDivContent = `
           <div class="cart_bottom_div">
@@ -178,7 +193,6 @@ function addItemToCart(title, price, imageSrc) {
 }
 
 
-
 function updateTotal() {
   var total = 0;
   var shopping_cart_items = document.getElementsByClassName("cart_items")[0];
@@ -196,15 +210,27 @@ function updateTotal() {
   }
   var totalOutput = shopping_cart_items.getElementsByClassName("total")[0];
   totalOutput.innerHTML = "Total: " + total + " EUR";
-
 }
 
-
 function quantityChanged(event) {
-
   var input = event.target;
   if (isNaN(input.value) || input.value <= 0) {
     input.value = 1;
   }
   updateTotal();
+}
+
+function returnToBottomDiv(){
+  var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
+  var bottom_div = document.getElementsByClassName("bot")[0];
+
+  if (checkoutDiv.style.display === "flex"){
+    checkoutDiv.style.display = "none";
+    bottom_div.style.display = "flex";
+    init_main();
+
+
+
+
+  }
 }
