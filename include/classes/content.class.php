@@ -68,7 +68,12 @@ class content
   function checkout_html(){
     $output = "<div class='checkout-div'>
     <div class='customer-info'>
-      
+      email<input type='email' placeholder='email'>
+      <div class='FaS_name'>firstname<input placeholder='firstname'>surname<input placeholder='surname'></div>
+      city <input placeholder='city'>
+      <div class='CaP'>country<input placeholder='country'>postal code<input placeholder='postal code'></div>
+      phone number <input placeholder='phone number'>
+      <button class='place_order'>Place Order</button>
     </div>
     <div class='shopping-cart'>
       <!--this part of the shopping cart get generated in javascript-->

@@ -40,7 +40,6 @@ function checkoutAddEventListener(){
   var bottomDiv = document.getElementsByClassName("bot")[0];
   var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
   var shopping_cart_items = document.getElementsByClassName("cart_items")[0];
-  var cart_bottom_div = shopping_cart_items.getElementsByClassName("cart_bottom_div")[0];
   //right div on the checkoutDiv
   var checkout_shopping_cart = document.getElementsByClassName("shopping-cart")[0];
   for(var i = 0; i < checkoutButton.length; i++){
@@ -52,7 +51,17 @@ function checkoutAddEventListener(){
       checkout_shopping_cart.append(shopping_cart_items);
       //removing/disappearing the checkout button
       this.remove();
+      placeOrderAddEventListener();
     });
+
+  }
+}
+
+function placeOrderAddEventListener(){
+  var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
+  var placeOrderButton = checkoutDiv.getElementsByClassName("place_order");
+  for(var i = 0; i<placeOrderButton.length;i++){
+    placeOrderButton[i].addEventListener("click",placeOrderClicked);
   }
 }
 
@@ -99,6 +108,14 @@ function removeFromCartClicked(event) {
 
 }
 
+//funktion muss noch geschrieben werden
+//IDEA: Ajax request um die Daten mit PHP zu verarbeiten.
+// Danach ein div zur Rückmeldung das die Bestellung verarbeitet wird
+function placeOrderClicked(event){
+  var button = event.target;
+  console.log("place order clicked.");
+}
+
 /*
 * FUNCTION WHICH SHOWS THE SHOPPING CART PLUS ALL CONTAINING ELEMENTS
 * */
@@ -122,13 +139,13 @@ function addItemToCart(title, price, imageSrc) {
     <div class="cart-row">
       <div class="item-column cart-column">
         <img class="item-image" src="${imageSrc}" width="75" height="75">
-        <span class="item-title">${title}</span>
+        <span class="item-title" name="${title}">${title}</span>
       </div>
       <div class="price-column cart-column">
-        <span class="item-price">${price}EUR</span>
+        <span class="item-price" name="${price}">${price}EUR</span>
       </div>  
       <div class="quantity-column cart-column">
-        <input class="quantity-input" type="number" value="1">
+        <input class="quantity-input" type="number" value="1" name="quantity">
         <button class="remove-from-cart" type="button">Remove</button>
       </div>
       </div>

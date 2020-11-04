@@ -218,7 +218,7 @@ body{
   width: auto;
   background-color: darkgoldenrod;
   text-align: center;
-  overflow: auto;
+  overflow-y: auto;
   position: absolute;
   right: 0;
   border-radius: 12px;
@@ -316,27 +316,72 @@ body{
   width: 100vw;
   height: 100vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: row;
 }
 
-.checkout-div .customer-info{
-  width: 50vh;
+/*Styling for the Customer Info (left div)*/
+.customer-info{
+  width: 70vh;
   height: 100vh;
-
-}
-.checkout-div .shopping-cart{
-  width: 50vh;
-  height: 100vh;
+  background-color: darkgoldenrod;
+  border-radius: 12px;
 
 }
 
-.checkout-div .shopping-cart .cart_items{
-  overflow: hidden;
+
+.customer-info input{
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border-bottom: solid 2px black;
+  padding: 0;
+  height: 20px;
+}
+
+.FaS_name{
+ display: flex;
+ flex-direction: row;
+}
+
+.CaP{
+  display: flex;
+  flex-direction: row;
+}
+
+.place_order{
+  margin-top: 1rem;
+  border: none;
+  border-radius: 12px;
+  padding: 5px;
+  background-color: #1961d4;
+  transition-duration: 0.3s;
+  text-align: center;
+  color: #eeeeee;
+  width: 100%;
+}
+
+.place_order:hover{
+  cursor: pointer;
+  background-color: #33adff;
+  color: bisque;
+}
+
+/*Styling for the Shopping Cart (right div)*/
+.shopping-cart{
+  width: 70vh;
+  height: 100vh;
+
+}
+
+.shopping-cart .cart_items{
+  overflow-y: auto;
   position: unset;
   height: 100%;
   width: 100%;
 }
+
+
 
 
 
