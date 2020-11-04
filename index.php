@@ -15,7 +15,7 @@ $smarty_object->right_delimiter = '}-->';
 $content = new content;
 
 //smarty variables for loading the website
-$vars  = ["products"=>"","dropdown"=>""];
+$vars  = ["products"=>"","dropdown"=>"","checkout"=>""];
 
 //generating the plant cards
 $plants = [
@@ -36,6 +36,9 @@ $dropdown_content = [
   ];
 $vars["dropdown"] = $content->dropdown_html($dropdown_content);
 
+//generating the checkout
+$vars["checkout"] = $content->checkout_html();
+
 $tpl = ["m"=>"main.html","co"=>"checkout.html"];
 $smarty_object->assign($vars);
-$smarty_object->display($tpl["co"]);
+$smarty_object->display($tpl["m"]);

@@ -307,3 +307,39 @@ body{
   background-color: #33adff;
   color: bisque;
 }
+
+
+/*CheckoutDiv*/
+.checkout-div{
+  scroll-snap-align: start;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.checkout-div .customer-info{
+  width: 50vh;
+  height: 100vh;
+
+}
+.checkout-div .shopping-cart{
+  width: 50vh;
+  height: 100vh;
+
+}
+
+.checkout-div .shopping-cart .cart_items{
+  overflow: hidden;
+  position: unset;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+
+

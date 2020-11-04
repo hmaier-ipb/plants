@@ -1,3 +1,9 @@
+This README is used as a notepad for my train of thoughts concerning:
+->epiphanys about logic of the different languages used
+->the logic of my own implemented functions
+->things I can't understand
+
+
 HTML inside content.class.php:
   ->card_html: CSS stored in style_main.css
   ->dropdown_html: CSS stored in style_main.css
@@ -8,10 +14,15 @@ obwohl <body> das parent-element für .top und .bot ist. sehr mystisch...
 
 
 ARRAY-STRUCTURE ZU card_html():
-$array = ["plant"=>["image path","plant name","plant description"]]
+$array = ["plant"=>["image path","plant name","plant description","price as int"]]
 
 ARRAY-STRUCTURE ZU dropdown_html():
 $array = [["colum",[["link1", "description1"],["link2", "description2"]]]]
 
-USING SMARTY VERSION
-smarty-3.1.35
+
+When you write a function for an EventListener in Javascript,
+you pass in the functions name into the EventListeners second parameter
+without parenthesis and add "event" as parameter to the function.
+The event Element can be targeted with: var myElem = event.target;
+
+

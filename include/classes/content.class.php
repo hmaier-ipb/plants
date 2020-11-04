@@ -66,6 +66,15 @@ class content
   }
 
   function checkout_html(){
-    $output = "";
+    $output = "<div class='checkout-div'>
+    <div class='customer-info'>
+      
+    </div>
+    <div class='shopping-cart'>
+      <!--this part of the shopping cart get generated in javascript-->
+    </div>
+  </div>
+    ";
+    return $output;
   }
 }
