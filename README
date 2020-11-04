@@ -13,3 +13,5 @@ $array = ["plant"=>["image path","plant name","plant description"]]
 ARRAY-STRUCTURE ZU dropdown_html():
 $array = [["colum",[["link1", "description1"],["link2", "description2"]]]]
 
+USING SMARTY VERSION
+smarty-3.1.35
