@@ -65,16 +65,16 @@ class content
   }
 
   function checkout_html(){
-    $output = "<div class='checkout-div' style='display: none;'>
+    $output = "<form action='index.php' method='post'><div class='checkout-div' style='display: none;'>
     <div class='customer-info'>
-      email<input type='email' placeholder='email'>
-      <div class='FaS_name'>firstname<input placeholder='firstname'>surname<input placeholder='surname'></div>
-      city <input placeholder='city'>
-      <div class='CaP'>country<input placeholder='country'>postal code<input placeholder='postal code'></div>
-      phone number <input placeholder='phone number'>
+      <span>email<input type='email' placeholder='email'></span>
+      <div class='two-inputs'><span>firstname<input placeholder='firstname'></span><span>surname<input placeholder='surname'></span></div>
+      <span>city <input placeholder='city'></span>
+      <div class='two-inputs'><span>country<input placeholder='country'></span><span>postal code<input placeholder='postal code'></span></div>
+      <span>phone number <input placeholder='phone number'></span>
       <button class='place_order'>Place Order</button>
     </div>
-  </div>
+  </div></form>
     ";
     return $output;
   }

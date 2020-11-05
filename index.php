@@ -2,11 +2,22 @@
 require_once("../smarty/libs/Smarty.class.php");
 require_once ("include/classes/content.class.php");
 //require_once ("include/classes/db.class.php");
+
+
 /*
 spl_autoload_register(function ($class_name){
   include "include/classes/".$class_name. ".class.php";
 });
+
+
+function __autoload($class_name){
+  $filePath = "include/classes/{$class_name}.php";
+  if (is_readable($filePath)){
+    require ($filePath);
+  }
+}
 */
+
 
 $smarty_object = new Smarty();
 $smarty_object->left_delimiter = '<!--{';
@@ -42,3 +53,7 @@ $vars["checkout"] = $content->checkout_html();
 $tpl = ["m"=>"main.html","co"=>"checkout.html"];
 $smarty_object->assign($vars);
 $smarty_object->display($tpl["m"]);
+
+
+$_POST[""];
+

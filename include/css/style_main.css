@@ -48,6 +48,7 @@ body{
   align-items: center;
   justify-content: center;
   padding: 20px;
+  transition: 0.3s;
 }
 
 /*DROPDOWN MENU located in .top*/
@@ -304,7 +305,7 @@ body{
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
-  transition: 0.3s;
+
 }
 
 /*Styling for the Customer Info */
@@ -314,6 +315,7 @@ body{
   background-color: darkgoldenrod;
   border-radius: 75px;
   padding: 2rem;
+  font-size: larger;
 }
 
 
@@ -323,17 +325,24 @@ body{
   border: none;
   border-bottom: solid 2px black;
   padding: 0;
-  height: 20px;
+  height: 30px;
+
 }
 
-.FaS_name{
- display: flex;
- flex-direction: row;
-}
-
-.CaP{
+/*both row with two input fields*/
+.two-inputs{
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+
+}
+.two-inputs * {
+  flex: 45%;
+}
+/*creates the space in the middle*/
+.two-inputs *:first-of-type{
+  margin-right: 2rem;
 }
 
 .place_order{
@@ -346,6 +355,7 @@ body{
   text-align: center;
   color: #eeeeee;
   width: 100%;
+
 }
 
 .place_order:hover{

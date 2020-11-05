@@ -7,10 +7,10 @@ This README is used as a notepad for my train of thoughts concerning:
 HTML inside content.class.php:
   ->card_html: CSS stored in style_main.css
   ->dropdown_html: CSS stored in style_main.css
+  ->checkout_html: CSS stored in style_main.css
 
 scroll-snap-type wurde auf <html> angewendet, da es auf <body> nicht funktioniert
 obwohl <body> das parent-element für .top und .bot ist. sehr mystisch...
-
 
 
 ARRAY-STRUCTURE ZU card_html():
@@ -26,8 +26,16 @@ without parenthesis and add "event" as parameter to the function.
 The event Element can be targeted with: var myElem = event.target;
 
 
-When handling the appearance of differnt divs, the style must have been set
+When handling the appearance of different divs, the style must have been set
 in the HTML Document. Otherwise Javascript cannot get ".style.display".
 Javascript does not read the styles in CSS.
+
+
+The shopping-cart (.car-row inside .cart_items) gets completely generated in Javascript.
+When loading the page .cart_items div is invisible. By clicking the addToCartButton .cart_items
+gets appended with a cart-row which contains all info shown in .card. By clicking the remove-from-cart-button
+which gets generated with the .cart-row, the .cart-row gets deleted.
+
+
 
 

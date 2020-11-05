@@ -111,7 +111,8 @@ function switchDivsCheckout(){
   if (scroll_container.style.display === "block" && checkoutDiv.style.display === "none"){
     scroll_container.style.display = "none";
     checkoutDiv.style.display = "block";
-    checkoutButton.style.display = "none";
+    checkoutButton.style.opacity = "0";
+    checkoutButton.style.cursor = "default";
   }else{
     scroll_container.style.display = "none";
     checkoutDiv.style.display = "block";
@@ -146,9 +147,7 @@ function addItemToCart(title, price, imageSrc) {
   console.log("addItemToCart");
 
   var checkoutRow = document.createElement("div");
-  var cart_items = document.getElementsByClassName("cart_items");
   var cart_items1 = document.getElementsByClassName("cart_items")[0];
-  var cart_items2 = document.getElementsByClassName("cart_items")[1];
   var cartItemTitles = cart_items1.getElementsByClassName("item-title");
 
   //this for loop gets a hold of redundant cart-rows
@@ -204,6 +203,7 @@ function addItemToCart(title, price, imageSrc) {
   quantityAddEventListener();
   checkoutAddEventListener();
   updateTotal();
+
 }
 
 
