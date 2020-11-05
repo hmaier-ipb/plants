@@ -26,3 +26,8 @@ without parenthesis and add "event" as parameter to the function.
 The event Element can be targeted with: var myElem = event.target;
 
 
+When handling the appearance of differnt divs, the style must have been set
+in the HTML Document. Otherwise Javascript cannot get ".style.display".
+Javascript does not read the styles in CSS.
+
+

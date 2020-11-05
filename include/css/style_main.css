@@ -40,7 +40,7 @@ body{
 }
 
 .bot{
- scroll-snap-align: start;
+  scroll-snap-align: start;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -112,6 +112,7 @@ body{
 /*PRODUCT CARD located in .bot*/
 /*scroll parent*/
 .scroll-container{
+  display: block;
   height: 100vh;
   width: 100vh;
   /*background-color: #1961d4;*/
@@ -124,21 +125,6 @@ body{
 
 
 }
-/*overlay*/
-
-.overlay {
-  height: 100%;
-  width: 100%;
-  display: none;
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9); /* Black with a little bit see-through */
-}
-
-
 
 /*scroll child*/
 .card{
@@ -257,7 +243,7 @@ body{
 }
 
 
-.cart_bottom_div{
+.cart_bot_div{
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -312,21 +298,22 @@ body{
 /*CheckoutDiv*/
 .checkout-div{
   scroll-snap-align: start;
-  display: none;
-  width: 100vw;
+  display: block;
   height: 100vh;
+  width: 100vh;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
+  transition: 0.3s;
 }
 
-/*Styling for the Customer Info (left div)*/
+/*Styling for the Customer Info */
 .customer-info{
-  width: 70vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: darkgoldenrod;
-  border-radius: 12px;
-
+  border-radius: 75px;
+  padding: 2rem;
 }
 
 
@@ -365,20 +352,6 @@ body{
   cursor: pointer;
   background-color: #33adff;
   color: bisque;
-}
-
-/*Styling for the Shopping Cart (right div)*/
-.shopping-cart{
-  width: 70vh;
-  height: 100vh;
-
-}
-
-.shopping-cart .cart_items{
-  overflow-y: auto;
-  position: unset;
-  height: 100%;
-  width: 100%;
 }
 
 

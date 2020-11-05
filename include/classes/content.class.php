@@ -17,7 +17,7 @@ class content
     //$plants = ["plant"=>["image path","plant name","plant description"]]
     $i = 0;
     $output = "";
-    $output .= "<div class='scroll-container'>";
+    $output .= "<div class='scroll-container' style='display: block'>";
     foreach($plants as $plant=>$info){
       $i++;
       $image = $info[0];
@@ -65,7 +65,7 @@ class content
   }
 
   function checkout_html(){
-    $output = "<div class='checkout-div'>
+    $output = "<div class='checkout-div' style='display: none;'>
     <div class='customer-info'>
       email<input type='email' placeholder='email'>
       <div class='FaS_name'>firstname<input placeholder='firstname'>surname<input placeholder='surname'></div>
@@ -73,9 +73,6 @@ class content
       <div class='CaP'>country<input placeholder='country'>postal code<input placeholder='postal code'></div>
       phone number <input placeholder='phone number'>
       <button class='place_order'>Place Order</button>
-    </div>
-    <div class='shopping-cart'>
-      <!--this part of the shopping cart get generated in javascript-->
     </div>
   </div>
     ";
