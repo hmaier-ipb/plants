@@ -2,22 +2,9 @@
 require_once("../smarty/libs/Smarty.class.php");
 require_once ("include/classes/content.class.php");
 //require_once ("include/classes/db.class.php");
-
-
-/*
-spl_autoload_register(function ($class_name){
-  include "include/classes/".$class_name. ".class.php";
-});
-
-
-function __autoload($class_name){
-  $filePath = "include/classes/{$class_name}.php";
-  if (is_readable($filePath)){
-    require ($filePath);
-  }
+function errl($var){
+  error_log(json_encode($var));
 }
-*/
-
 
 $smarty_object = new Smarty();
 $smarty_object->left_delimiter = '<!--{';
@@ -50,10 +37,40 @@ $vars["dropdown"] = $content->dropdown_html($dropdown_content);
 //generating the checkout
 $vars["checkout"] = $content->checkout_html();
 
-$tpl = ["m"=>"main.html","co"=>"checkout.html"];
+$tpl = ["m"=>"main.html"];
 $smarty_object->assign($vars);
 $smarty_object->display($tpl["m"]);
 
 
-$_POST[""];
+/*
+//receiving content from javascript
+$email = $_POST["email"];
+$firstname = $_POST["firstname"];
+$surname = $_POST["surname"];
+$streetname = $_POST["streetname"];
+$streetnumber = $_POST["streetnumber"];
+$city = $_POST["city"];
+$postalcode = $_POST["postalcode"];
+$country = $_POST["country"];
+$phonenumber = $_POST["phonenumber"];
+//indices synchronous
+$items = $_POST["items"]; //items array
+$quantity = $_POST["quantity"]; //quantity array
+$totalprice = $_POST["totalprice"];
+*/
+
+$itemlist_string = isset($_POST["itemlist"])?$_POST["itemlist"]: "";
+
+//using regex to filter out the "item=>quantity"
+$pattern = "/[a-z]+=>\d/";
+if(preg_match_all($pattern,$itemlist_string,$matches)){
+  foreach ($matches as $match){
+    errl($match);
+  }
+}
+
+
+
+
+
 

@@ -36,6 +36,14 @@ When loading the page .cart_items div is invisible. By clicking the addToCartBut
 gets appended with a cart-row which contains all info shown in .card. By clicking the remove-from-cart-button
 which gets generated with the .cart-row, the .cart-row gets deleted.
 
+From the checkout-div, the data gets send to index.php via an AJAX Request.
+The Data contains:
+  ->the Total Price
+  ->selected Item/s with quantity
+  ->customer data
+
+
+
 
 
 

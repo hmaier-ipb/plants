@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Main</title>
   <link rel="stylesheet" href="include/css/style_main.css" type="text/css">
-  <script>document.addEventListener("DOMContentLoaded", function(){init_main()})</script>
   <script src="include/js/main.js"></script>
+  <script src="include/js/ajax.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function(){init_main()})</script>
+  <script>document.addEventListener("DOMContentLoaded", function(){init_ajax()})</script>
 </head>
 <body>
   <div class="top">
@@ -15,7 +17,6 @@
 
   </div>
   <div class="bot">
-
     <!--{$products}-->
     <!--{$checkout}-->
     <div class="cart_items">

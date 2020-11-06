@@ -40,17 +40,11 @@ function checkoutAddEventListener(){
   var checkoutButton = document.getElementsByClassName("checkout_button");
   for(var i = 0; i < checkoutButton.length; i++){
     checkoutButton[i].addEventListener("click", switchDivsCheckout);
-    console.log("checkout event listener set");
+    //console.log("checkout event listener set");
   }
 }
 
-function placeOrderAddEventListener(){
-  var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
-  var placeOrderButton = checkoutDiv.getElementsByClassName("place_order");
-  for(var i = 0; i<placeOrderButton.length;i++){
-    placeOrderButton[i].addEventListener("click",placeOrderClicked);
-  }
-}
+
 
 /*
 * FUNCTIONS FOR EVENT LISTENERS
@@ -59,7 +53,7 @@ function placeOrderAddEventListener(){
 function addToCartClicked(event) {
   //event is the object linked to the specific button clicked
   //the target is the button clicked on
-  console.log("addToCartClicked");
+  //console.log("addToCartClicked");
   var buttonClicked = event.target;
   var cart1 = document.getElementsByClassName("cart_items")[0];
   cart1.style.display = "block";
@@ -77,10 +71,10 @@ function addToCartClicked(event) {
 
 
 function removeFromCartClicked(event) {
-  console.log("removeFromCartClicked");
+  //console.log("removeFromCartClicked");
   //removing the cart row in which the button was clicked
   var buttonClicked = event.target;
-  console.log(buttonClicked.parentElement.parentElement);
+  //console.log(buttonClicked.parentElement.parentElement);
   buttonClicked.parentElement.parentElement.remove();
   //vars for removing the checkout button
   var shopping_cart_items = document.getElementsByClassName("cart_items")[0];
@@ -131,20 +125,14 @@ function switchDivsRemove(){
   }
 }
 
-//funktion muss noch geschrieben werden
-//IDEA: Ajax request um die Daten mit PHP zu verarbeiten.
-// Danach ein div zur Rückmeldung das die Bestellung verarbeitet wird
-function placeOrderClicked(event){
-  var button = event.target;
-  console.log("place order clicked.");
-}
+
 
 /*
 * FUNCTION WHICH SHOWS THE SHOPPING CART PLUS ALL CONTAINING ELEMENTS
 * */
 
 function addItemToCart(title, price, imageSrc) {
-  console.log("addItemToCart");
+  //console.log("addItemToCart");
 
   var checkoutRow = document.createElement("div");
   var cart_items1 = document.getElementsByClassName("cart_items")[0];
@@ -162,10 +150,10 @@ function addItemToCart(title, price, imageSrc) {
     <div class="cart-row">
       <div class="item-column cart-column">
         <img class="item-image" src="${imageSrc}" width="75" height="75">
-        <span class="item-title" name="${title}">${title}</span>
+        <span class="item-title" value="${title}">${title}</span>
       </div>
       <div class="price-column cart-column">
-        <span class="item-price" name="${price}">${price}EUR</span>
+        <span class="item-price" value="${price}">${price}EUR</span>
       </div>  
       <div class="quantity-column cart-column">
         <input class="quantity-input" type="number" value="1" name="quantity">

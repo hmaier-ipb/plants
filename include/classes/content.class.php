@@ -65,16 +65,17 @@ class content
   }
 
   function checkout_html(){
-    $output = "<form action='index.php' method='post'><div class='checkout-div' style='display: none;'>
+    $output = "<div class='checkout-div' style='display: none;'>
     <div class='customer-info'>
-      <span>email<input type='email' placeholder='email'></span>
-      <div class='two-inputs'><span>firstname<input placeholder='firstname'></span><span>surname<input placeholder='surname'></span></div>
-      <span>city <input placeholder='city'></span>
-      <div class='two-inputs'><span>country<input placeholder='country'></span><span>postal code<input placeholder='postal code'></span></div>
-      <span>phone number <input placeholder='phone number'></span>
+      <span>email<input id='email' type='email' placeholder='email'></span>
+      <div class='two-inputs'><span>firstname<input id='firstname' placeholder='firstname'></span><span>surname<input id='surname' placeholder='surname'></span></div>
+      <div class='two-inputs'><span>streetname<input id='streetname' placeholder='streetname'></span><span>street number<input id='streetnumber' placeholder='streetnumber'></span></div>
+      <div class='two-inputs'><span>city<input id='city' placeholder='city'></span><span>postal code<input id='postalcode' placeholder='postal code'></span></div>
+      <span>country <input id='country' placeholder='country'></span>
+      <span>phone number <input id='phonenumber' placeholder='phone number'></span>
       <button class='place_order'>Place Order</button>
     </div>
-  </div></form>
+  </div>
     ";
     return $output;
   }
