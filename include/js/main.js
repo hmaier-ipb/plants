@@ -221,3 +221,9 @@ function quantityChanged(event) {
   }
   updateTotal();
 }
+
+
+//regex validation of checkout-div inputs
+function checkoutValidation(){
+
+}

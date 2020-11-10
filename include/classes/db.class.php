@@ -1,4 +1,11 @@
 <?php
+
+/**
+ *
+ */
+
+
+
 class db
 {
   //the standard database login credentials
@@ -7,9 +14,8 @@ class db
   protected $pwd = "";
   protected $db_name = "";
 
-  public function __construct ($db_name)
+  public function __construct ()
   {
-    $this->db_name = $db_name;
     $this->connect = $this->connect();
   }
 

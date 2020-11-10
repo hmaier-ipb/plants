@@ -21,9 +21,9 @@ function initEventListeners() {
 
 
 function placeOrderClicked(){
+  //verification of
+
   params = "itemlist=";
-  var itemsarray = [];
-  var quantityarray = [];
   //var cart_items = $("cart_items")[0];
   var cart_rows = $("cart-row");
   //getting all differnt variables
@@ -33,16 +33,24 @@ function placeOrderClicked(){
     var item = item_col.getElementsByClassName("item-title")[0].innerHTML
     var quantity = quantity_col.getElementsByClassName("quantity-input")[0].value;
     params += item+"=>"+quantity+"";
-    //itemsarray.push(item);
-    //quantityarray.push(quantity);
-    //console.log(item," ",quantity);
   }
-  //console.log(itemsarray);
-  //console.log(quantityarray);
+  let email = document.getElementById("email");
+  let firstname = document.getElementById("firstname");
+  let surname = document.getElementById("surname");
+  let streetname = document.getElementById("streetname");
+  let streetnumber = document.getElementById("streetnumber");
+  let city = document.getElementById("city");
+  let postalcode = document.getElementById("postalcode");
+  let country = document.getElementById("country");
+  let phonenumber = document.getElementById("phonenumber");
+
+  params += "&email="+email.value+"&firstname="+firstname.value+"&surname="+surname.value
+  params += "&streetname="+streetname.value+"&streetnumber="+streetnumber.value
+  params += "&city="+city.value+"&postalcode="+postalcode.value+"&country="+country.value+"&phonenumber="+phonenumber.value
+  params += "&action=checkout";
   console.log(params);
-  //sending them to php
-  //
   send_info(params);
+
 }
 
 
@@ -63,7 +71,7 @@ function send_info(parameters) {
   if (ajaxObj !== null) {
     ajaxObj.open("POST", "index.php", true);
     ajaxObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    ajaxObj.onreadystatechange = setOutput;
+    //ajaxObj.onreadystatechange = setOutput;
     ajaxObj.send(parameters);
   }
   else {
@@ -75,7 +83,7 @@ function send_info(parameters) {
 function setOutput() {
   //recieving output form php as json
   if (ajaxObj.readyState === 4) {
-    console.log(ajaxObj.responseText);
+    //console.log(ajaxObj.responseText);
     if (ajaxObj.status === 200) {
       try {
         json_response = JSON.parse(ajaxObj.responseText);
@@ -90,9 +98,7 @@ function setOutput() {
           output.innerHTML = json_response[0];
           action = "";
           break;
-         //case: "second_case":
-          // output my json_response
-          //break;
+
         default:
           output.innerHTML = "Keine gültige Aktion";
       }
