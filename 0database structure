@@ -1,0 +1,41 @@
+Products
+ ->id [int]{primary}
+ ->product_name [varchar]
+ ->image_path [varchar]
+ ->product_description [varchar]
+ ->product_price
+
+Customer
+ ->id [int] {primary}
+ ->email [varchar]
+ ->firstname [varchar]
+ ->surname [varchar]
+ ->street_id [int]
+ ->postalcode_id [int]
+ ->street_number [int]
+ ->phone_number [int]
+
+Orders
+ ->id [int] {primary}
+ ->customer_id [int]
+ ->ordered_items [varchar]
+ ->total_price [float]
+
+Street
+  ->id [int] {primary}
+  ->postalcode_id [int]
+  ->street_name [varchar]
+
+Postalcodes
+  ->id [int] {primary}
+  ->city_id [int]
+  ->postalcode [int]
+
+Citys
+  ->id [int] {primary}
+  ->country_id [int]
+  ->city_name [varchar]
+
+Countrys
+  ->id [int] {primary}
+  ->country_name

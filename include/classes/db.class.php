@@ -1,23 +1,22 @@
 <?php
 
 /**
- *
+ * this class provides many operations used on a database
+ * mysqli lib is needed for this class
+ * activate mysqli in the php.ini by uncommenting under the point dynamic extension
+ * muss auf jeden fall mal überarbeitet werden... it's a complete chaos...
  */
 
 
 
 class db
 {
-  //the standard database login credentials
+  //database login credentials
   protected $host = "127.0.0.1";
   protected $user = "www-data";
   protected $pwd = "";
-  protected $db_name = "";
+  protected $db_name = "plants";
 
-  public function __construct ()
-  {
-    $this->connect = $this->connect();
-  }
 
   //calling this function in __construct opens a connection when the class is instantiated
   function connect()
@@ -39,17 +38,56 @@ class db
   //used for sending queries to the db
   public function query_to_db($query)
   {
-    return mysqli_query($this->connect,$query);
+    return mysqli_query($this->connect(),$query);
+
   }
 
   //used for finding a certain variable in a certain table and column
   //if you want to search through ALL COLUMNS you have to address every column on its own
-  public function search_entry($var, $table, $column)
+  public function check_value($var, $table, $column)
   {
     $query = "SELECT * FROM " . $table . " WHERE " . $column . "='" . $var . "'";
     $check = $this->query_to_db($query);
     return (mysqli_num_rows($check) == 0) ? 0 : 1; // 0 = not existing, 1 >= existing
   }
+
+  //this function returns the id of a var inside a column in a table
+
+  public function return_id($var,$table,$column){
+  $query = "SELECT * FROM ".$table." WHERE ".$column."='".$var."'";
+  $result = mysqli_fetch_assoc($this->query_to_db($query));
+  return $result["id"];
+  }
+
+  //insert multiple variables by giving them into arrays
+  //respect the sequence in the database
+  public function insert_values($columns_array,$vars_array,$table){
+    //error_log(json_encode($columns_array));
+    //error_log(json_encode($vars_array));
+    $columns = "";
+    $vars = "";
+    foreach($columns_array as $column){
+      $columns .= "$column,";
+    }
+    $columns = substr($columns, 0, -1);
+    foreach($vars_array as $var){
+      $vars .= "'$var',";
+    }
+    $vars = substr($vars, 0, -1);
+
+    error_log(json_encode($columns));
+    error_log(json_encode($vars));
+
+    $query = "INSERT INTO ".$table."(".$columns.")VALUES(".$vars.")";
+    error_log(json_encode($query));
+    $this->query_to_db($query);
+  }
+
+  public function update_table($var,$table,$column,$id){
+    $query = "UPDATE $table SET $column=$var WHERE id=$id ";
+    $this->query_to_db($query);
+  }
+
   //delete the last 100 values from a table
   public function delete_table($table){
     $query = "DELETE FROM ". $table ."WHERE id ORDER BY id DESC LIMIT 100";
@@ -85,6 +123,14 @@ class db
       $query = "DELETE FROM ".$table." WHERE id ORDER BY id DESC LIMIT 100";
       $this->query_to_db($query);
     }
+  }
+  //TODO: zeigt nur die erste zeile des tables an
+  //return all values from a table
+  public function return_table($table)
+  {
+    $query = "SELECT * FROM $table";
+    $table_result = $this->query_to_db($query);
+    return mysqli_fetch_assoc($table_result);
   }
 
 

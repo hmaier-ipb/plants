@@ -5,15 +5,15 @@ require_once ("include/classes/content.class.php");
 require_once ("include/classes/checkout.class.php");
 
 function errl($var){
-  error_log(json_encode($var));
+   error_log(json_encode($var));
 }
 
 $plants = [
-  "pilea" => ["pilea.png","pilea","pilea description",13.99],
-  "monstera" => ["monstera.png","monstera","monstera description",9.99],
-  "acrea" => ["acrea.png", "acrea","acrea description",19.99],
-  "san_pedro" => ["san_pedro.png","san pedro", "san pedro description",42.01],
-  "castano" =>["castanospermum_australe.png", "castanospermum australe", "castano description",15.15]
+  ["pilea","pilea.png","pilea description",13.99],
+  ["monstera","monstera.png","monstera description",9.99],
+  ["acrea","acrea.png", "acrea description",19.99],
+  ["san pedro","san_pedro.png", "san pedro description",42.01],
+  ["castanospermum australe","castanospermum_australe.png", "castano description",15.15]
 ];
 
 $dropdown_content = [
@@ -23,7 +23,8 @@ $dropdown_content = [
 ];
 
 if(isset($_POST["action"])){
-  switch($_POST["action"]){
+  switch($_POST["action"])
+  {
     case "checkout":
       //place order button was pressed
       $checkout = new checkout($plants);
@@ -54,13 +55,3 @@ if(isset($_POST["action"])){
   $smarty_object->assign($vars);
   $smarty_object->display($tpl["m"]);
 }
-
-
-
-
-
-
-
-
-
-

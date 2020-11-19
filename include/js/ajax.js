@@ -21,7 +21,7 @@ function initEventListeners() {
 
 
 function placeOrderClicked(){
-  //verification of
+  //TODO: ->verification of the inputs -> forward the user to a new screen (thank you screen ect.??)
 
   params = "itemlist=";
   //var cart_items = $("cart_items")[0];

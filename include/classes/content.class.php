@@ -4,7 +4,7 @@
  *
  *content.class.php is responsible for creating redundant HTML elements
  *the functions are giving out strings, containing HTML tags
- *input variables for the functions are differnt kind of arrays
+ *input variables for the functions are different kind of arrays
  *
  */
 
@@ -13,15 +13,18 @@ class content
 {
 
 
-  function card_html($plants){
-    //$plants = ["plant"=>["image path","plant name","plant description"]]
-    $i = 0;
+  function card_html($plants)
+  {
+    //$plants = [
+    //            ["image path","plant name","plant description",price as int],
+    //            ["image path","plant name","plant description", price as int]
+    //          ]
+
     $output = "";
     $output .= "<div class='scroll-container' style='display: block'>";
-    foreach($plants as $plant=>$info){
-      $i++;
-      $image = $info[0];
-      $plantname = $info[1];
+    foreach ($plants as $info) {
+      $plantname = $info[0];
+      $image = $info[1];
       $description = $info[2];
       $price = $info[3];
       $output .= "<div class='card'>
@@ -44,17 +47,18 @@ class content
   }
 
 
-  function dropdown_html($dropdown_content){
+  function dropdown_html($dropdown_content)
+  {
     // $dropdown_content = [["colum",[["link1", "description1"],["link2", "description2"]]]]
     $output = "";
     $output .= "<div class='dropdown_container'>";
-    foreach ($dropdown_content as $col){
+    foreach ($dropdown_content as $col) {
       $output .= "<div class='dropdown'>";
-      $output .= "<button class='dropdown_button'>".$col[0]."</button>";
+      $output .= "<button class='dropdown_button'>" . $col[0] . "</button>";
       $output .= "<div class='dropdown_col'>";
       //$col[1] bezieht sich auf den array mit den arrays->["link", "description"]
       //$col[0] ist "col"
-      foreach ($col[1] as $row){
+      foreach ($col[1] as $row) {
         $output .= "<a  class='dropdown_row' href='$row[0]'>$row[1]</a>";
       }
       $output .= "</div>";
@@ -64,7 +68,8 @@ class content
     return $output;
   }
 
-  function checkout_html(){
+  function checkout_html()
+  {
     $output = "<div class='checkout-div' style='display: none;'>
     <div class='customer-info'>
       <span>email<input id='email' type='email' placeholder='email'></span>
@@ -77,6 +82,23 @@ class content
     </div>
   </div>
     ";
+    return $output;
+  }
+
+  /**
+   * @param array $list_content
+   * @param int $MODE
+   * @return string
+   *
+   * default mode = 0 -> UNORDERED LIST
+   * mode = 1 -> ORDERED LIST
+   */
+  function generate_nav_buttons($list_content)
+  {
+    $output = "";
+    foreach ($list_content as $item) {
+      $output .= "<button id='$item'>$item</button>";
+    }
     return $output;
   }
 }

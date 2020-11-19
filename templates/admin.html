@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="include/css/style_admin.css" type="text/css">
+  <script src="include/js/admin.js"></script>
+  <script src="include/js/ajax_admin.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function(){init_admin()})</script>
+  <script>document.addEventListener("DOMContentLoaded", function(){init_admin_ajax()})</script>
+</head>
+<body>
+  <main>
+    <nav>
+    <!--{$nav}-->
+    </nav>
+    <header>
+      <em>header</em>
+    </header>
+    <section class="main">
+      <div class="orders">
+        <div class="order_list"><!--{$orders}--></div>
+        <div class="customer_info"><em>customer information</em></div>
+      </div>
+      <div class="statistics"></div>
+      <div class="new_product"></div>
+    </section>
+  </main>
+</body>
+</html>
