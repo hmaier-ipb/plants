@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-06 06:57:58
+/* Smarty version 3.1.34-dev-7, created on 2020-11-19 15:00:27
   from 'D:\inetpub\www\plants\templates\main.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fa4f3f6414a81_83668613',
+  'unifunc' => 'content_5fb6888b211298_95706036',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf3e24363043e0d46baeb3a52d2511cb9597ab77' => 
     array (
       0 => 'D:\\inetpub\\www\\plants\\templates\\main.html',
-      1 => 1604645874,
+      1 => 1605788750,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fa4f3f6414a81_83668613 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fb6888b211298_95706036 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +32,7 @@ function content_5fa4f3f6414a81_83668613 (Smarty_Internal_Template $_smarty_tpl)
  src="include/js/main.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="include/js/ajax.js"><?php echo '</script'; ?>
+ src="include/js/ajax_main.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
 >document.addEventListener("DOMContentLoaded", function(){init_main()})<?php echo '</script'; ?>

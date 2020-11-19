@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-18 14:50:33
+/* Smarty version 3.1.34-dev-7, created on 2020-11-19 11:57:49
   from 'D:\inetpub\www\plants\templates\admin.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb534b933c688_15629341',
+  'unifunc' => 'content_5fb65dbd667ec6_45327166',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40dd52ec33c687da84e6a38d4492729cb66c46be' => 
     array (
       0 => 'D:\\inetpub\\www\\plants\\templates\\admin.html',
-      1 => 1605711031,
+      1 => 1605787067,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fb534b933c688_15629341 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fb65dbd667ec6_45327166 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +53,7 @@ function content_5fb534b933c688_15629341 (Smarty_Internal_Template $_smarty_tpl)
       <div class="orders">
         <div class="order_list"><?php echo $_smarty_tpl->tpl_vars['orders']->value;?>
 </div>
-        <div class="customer_info"><em>customer information</em></div>
+        <div class="customer_info"></div>
       </div>
       <div class="statistics"></div>
       <div class="new_product"></div>

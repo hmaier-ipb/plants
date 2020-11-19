@@ -59,6 +59,12 @@ class db
   return $result["id"];
   }
 
+  public function return_row($var,$table,$column){
+    $query = "SELECT * FROM ".$table." WHERE ".$column."='".$var."'";
+    $result = mysqli_fetch_row($this->query_to_db($query));
+    return $result;
+  }
+
   //insert multiple variables by giving them into arrays
   //respect the sequence in the database
   public function insert_values($columns_array,$vars_array,$table){
@@ -124,13 +130,17 @@ class db
       $this->query_to_db($query);
     }
   }
-  //TODO: zeigt nur die erste zeile des tables an
-  //return all values from a table
+  //returns mysqli_result from a table
   public function return_table($table)
   {
     $query = "SELECT * FROM $table";
     $table_result = $this->query_to_db($query);
-    return mysqli_fetch_assoc($table_result);
+    return $table_result;
+  }
+
+  public function remove_row($id,$table){
+    $query = "DELETE FROM ".$table." WHERE id='$id' ";
+    $this->query_to_db($query);
   }
 
 

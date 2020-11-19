@@ -43,9 +43,6 @@ nav button{
   grid-area: unset;
 }
 
-.statistics{
-  grid-area: unset;
-}
 
 .main{
   grid-area: main;
@@ -63,6 +60,23 @@ nav button{
 
 .order_list{
   grid-column: 1/2;
+  border-right: 2px solid black;
+
+}
+
+.order_list p{
+  display: grid;
+  grid-template-columns: 0.3fr 0.4fr 2fr 0.5fr 0.3fr;
+  margin: 5px 5px 5px 5px;
+}
+
+.order_list p span{
+  margin-left: 3px;
+}
+
+.order_list p:hover{
+  background-color: #38baba;
+  cursor: pointer;
 }
 
 .customer_info{
