@@ -14,7 +14,7 @@ class admin extends db
     while($array = mysqli_fetch_row($orders)){
       $out .= "<p class='order_paragraph'>";
       $out .= "<span class='order_id'>Order ID:$array[0]</span>";
-      $out .= "<span class='customer_id'>Customer ID:$array[1]</span>";
+      $out .= "<span style='display:none' class='customer_id'>Customer ID:$array[1]</span>";
       $out .= "<span>Ordered Items: $array[2] </span>";
       $out .= "<span>Total Price: $array[3]</span>";
       $out .= "</p>";
@@ -38,7 +38,10 @@ class admin extends db
     $city_id = $postalcode_row[1];
     $city_row = $this->return_row($city_id, "citys", "id");
     $city_name = $city_row[2];
-    return [$firstname,$surname,$street_name,$street_number,$postalcode,$city_name,$order_id];
+    $order_row = $this->return_row($order_id, "orders", "id");
+    $order = $order_row[2];
+    $total_price = $order_row[3];
+    return [$firstname,$surname,$street_name,$street_number,$postalcode,$city_name,$order,$total_price,$order_id];
   }
   public function remove_order($order_id){
     $this->remove_row($order_id,"orders");

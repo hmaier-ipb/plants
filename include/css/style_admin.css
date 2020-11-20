@@ -66,19 +66,28 @@ nav button{
 
 .order_list p{
   display: grid;
-  grid-template-columns: 0.3fr 0.4fr 2fr 0.5fr 0.3fr;
+  grid-template-columns: 0.5fr 3fr 0.9fr ;
   margin: 5px 5px 5px 5px;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .order_list p span{
   margin-left: 3px;
 }
 
+
 .order_list p:hover{
   background-color: #38baba;
-  cursor: pointer;
-}
+  }
 
 .customer_info{
   grid-column: 2/3;
 }
+
+.customer_info p:nth-child(n+4){
+  margin-top: 1rem;
+}
+
+.customer_info.p

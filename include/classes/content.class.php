@@ -101,4 +101,6 @@ class content
     }
     return $output;
   }
+  function generate_input_fields(){}
 }
+

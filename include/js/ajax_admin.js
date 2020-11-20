@@ -21,6 +21,8 @@ function initEventListeners() {
   //console.log(customer_id);
   for (let i = 0; i < order_paragraphs.length; i++) {
     order_paragraphs[i].addEventListener("click", function () {
+
+      //ajax request to php
       action = "load_customer_info";
       params = "action=" + action + "&customer_id_string=" + customer_id[i].innerHTML+"&order_id_string="+order_id[i].innerHTML;
       console.log(params);
@@ -90,10 +92,13 @@ function setOutput() {
             "<p>"+json_response[0]+" "+json_response[1]+"</p>" +
             "<p>"+json_response[2]+" "+json_response[3]+"</p>" +
             "<p>"+json_response[4]+" "+json_response[5]+"</p>" +
-            "<p>Order ID: <span id='order_id'>"+ json_response[6]+"</span></p>" +
-            "<button class='remove_order'>REMOVE ORDER</button>"
+            "<p>"+json_response[6]+"</p>" +
+            "<p>Total Price: "+json_response[7]+"$</p>" +
+            "<p style='display:none'>Order ID: <span id='order_id'>"+ json_response[8]+"</span></p>" +
+            "<p><button class='remove_order'>REMOVE ORDER</button></p>"
 
           customer_info_div.innerHTML = info_display;
+          //initialising the Event Listener for the REMOVE ORDER button
           removeOrderEventListener();
           action = "";
           break;
@@ -101,8 +106,7 @@ function setOutput() {
           customer_info_div.innerHTML = "";
           order_list.innerHTML = "";
           order_list.innerHTML = json_response;
-          // TODO: überprüfen ob evenlisteners funktionieren
-          
+          //initialising the Event Listeners for the updated list
           initEventListeners();
         break;
         default:
