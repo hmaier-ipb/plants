@@ -51,7 +51,24 @@ function placeOrderClicked(){
   console.log(params);
   send_info(params);
 
+  //switching back to the products_container
+  var products_container = document.getElementsByClassName("products_container")[0];
+  var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
+  var checkout_button = document.getElementsByClassName("checkout_button")[0];
+  products_container.style.display = "grid";
+  checkoutDiv.style.display = "none";
+  checkout_button.style.opacity = "1";
+
+  //deleting all cart_rows
+  var cart = document.getElementsByClassName("cart_items")[0];
+  cart.style.display = "none";
+  while(cart_rows.length > 0){
+    cart_rows[0].remove();
+  }
+
+
 }
+
 
 
 

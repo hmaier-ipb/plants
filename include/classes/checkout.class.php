@@ -59,11 +59,12 @@ class checkout extends db
   //formating the items_string into an dictionary {$item : $quantity}
   public function getItemAndQuantity(){
 
-    if(preg_match_all("/[a-z\s]+=>\d/",$this->items_string,$matches)){
+    if(preg_match_all("/[a-z\s]+=>\d+/",$this->items_string,$matches)){
       foreach($matches[0] as $index){
        if(preg_match("/[a-z\s]+/",$index,$match)){$item_name = $match;}
-       if(preg_match("/\d/",$index,$match)){$quantity = $match;}
+       if(preg_match("/\d+/",$index,$match)){$quantity = $match;}
        $this->purchasedItems[$item_name[0]] = $quantity[0];
+       //error_log(json_encode($this->purchasedItems));
       }
     }
     $this->calculateTotal();
@@ -147,5 +148,8 @@ class checkout extends db
     //orders
     $customer_id = $this->return_id($email,"customers","email");
     $this->insert_values(["customer_id","ordered_items","total_price"],[$customer_id,$orderedItems,$totalprice],"orders");
+
+    //statistics
+    $this->insert_values(["ordered_items","total_price"],[$orderedItems,$totalprice],"statistics");
   }
 }

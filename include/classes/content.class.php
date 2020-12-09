@@ -21,7 +21,7 @@ class content
     //          ]
 
     $output = "";
-    $output .= "<div class='scroll-container' style='display: block'>";
+    //$output .= "<div class='scroll-container' style='display: block'>";
     foreach ($plants as $info) {
       $plantname = $info[0];
       $image = $info[1];
@@ -42,7 +42,7 @@ class content
           </div>";
 
     }
-    $output .= "</div>";
+    //$output .= "</div>";
     return $output;
   }
 
@@ -87,7 +87,6 @@ class content
 
   /**
    * @param array $list_content
-   * @param int $MODE
    * @return string
    *
    * default mode = 0 -> UNORDERED LIST
@@ -96,11 +95,11 @@ class content
   function generate_nav_buttons($list_content)
   {
     $output = "";
-    foreach ($list_content as $item) {
-      $output .= "<button id='$item'>$item</button>";
+    foreach ($list_content as $item=>$key) {
+      $output .= "<button class='nav' id='$key'>$item</button>";
     }
     return $output;
   }
-  function generate_input_fields(){}
+
 }
 

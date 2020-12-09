@@ -3,7 +3,7 @@
 /**
  * this class provides many operations used on a database
  * mysqli lib is needed for this class
- * activate mysqli in the php.ini by uncommenting under the point dynamic extension
+ * activate mysqli in the php.ini by uncommenting under DYNAMIC EXTENSIONS
  * muss auf jeden fall mal überarbeitet werden... it's a complete chaos...
  */
 
@@ -25,7 +25,7 @@ class db
   }
 
   //sets autoincrement to number of row plus 1
-  // useful when deleting something from a table
+  //useful when deleting something from a table
   public function set_autoinc($table)
   {
     $query = "SELECT * FROM ".$table;
@@ -53,13 +53,15 @@ class db
 
   //this function returns the id of a var inside a column in a table
 
-  public function return_id($var,$table,$column){
+  public function return_id($var,$table,$column)
+  {
   $query = "SELECT * FROM ".$table." WHERE ".$column."='".$var."'";
   $result = mysqli_fetch_assoc($this->query_to_db($query));
   return $result["id"];
   }
 
-  public function return_row($var,$table,$column){
+  public function return_row($var,$table,$column)
+  {
     $query = "SELECT * FROM ".$table." WHERE ".$column."='".$var."'";
     $result = mysqli_fetch_row($this->query_to_db($query));
     return $result;
@@ -67,7 +69,8 @@ class db
 
   //insert multiple variables by giving them into arrays
   //respect the sequence in the database
-  public function insert_values($columns_array,$vars_array,$table){
+  public function insert_values($columns_array,$vars_array,$table)
+  {
     //error_log(json_encode($columns_array));
     //error_log(json_encode($vars_array));
     $columns = "";

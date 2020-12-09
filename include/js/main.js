@@ -51,6 +51,7 @@ function checkoutAddEventListener(){
 * */
 
 function addToCartClicked(event) {
+
   //event is the object linked to the specific button clicked
   //the target is the button clicked on
   //console.log("addToCartClicked");
@@ -67,8 +68,6 @@ function addToCartClicked(event) {
   var imageSrc = info.getElementsByClassName("product-image")[0].src;
   addItemToCart(title, price, imageSrc);
 }
-
-
 
 function removeFromCartClicked(event) {
   //console.log("removeFromCartClicked");
@@ -91,36 +90,35 @@ function removeFromCartClicked(event) {
     var cart = document.getElementsByClassName("cart_items")[0];
     cart.style.display = "none";
     switchDivsRemove();
-
   }
-
 }
+
 
 function switchDivsCheckout(){
   //switchting divs by changing the display style when pressing checkout
-  var scroll_container = document.getElementsByClassName("scroll-container")[0];
+  var products_container = document.getElementsByClassName("products_container")[0];
   var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
   var checkoutButton = document.getElementsByClassName("checkout_button")[0];
 
-  if (scroll_container.style.display === "block" && checkoutDiv.style.display === "none"){
-    scroll_container.style.display = "none";
-    checkoutDiv.style.display = "block";
+  if (products_container.style.display === "grid" && checkoutDiv.style.display === "none"){
+    products_container.style.display = "none";
+    checkoutDiv.style.display = "grid";
     checkoutButton.style.opacity = "0";
     checkoutButton.style.cursor = "default";
   }else{
-    scroll_container.style.display = "none";
-    checkoutDiv.style.display = "block";
+    products_container.style.display = "none";
+    checkoutDiv.style.display = "grid";
 
   }
 }
 
 function switchDivsRemove(){
   //switchting divs by changing the display style when pressing remove
-  var scroll_container = document.getElementsByClassName("scroll-container")[0];
+  var products_container = document.getElementsByClassName("products_container")[0];
   var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
 
-  if (checkoutDiv.style.display === "block"){
-    scroll_container.style.display = "block";
+  if (checkoutDiv.style.display === "grid"){
+    products_container.style.display = "grid";
     checkoutDiv.style.display = "none";
   }
 }
@@ -225,5 +223,5 @@ function quantityChanged(event) {
 
 //regex validation of checkout-div inputs
 function checkoutValidation(){
-
+  //TODO
 }

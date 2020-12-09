@@ -41,13 +41,13 @@ if(isset($_POST["action"])){
   $content = new content;
 
   //smarty variables for loading the website
-  $vars  = ["products"=>"","dropdown"=>"","checkout"=>""];
+  $vars  = ["products"=>"","dropdown"=>""];//,"checkout"=>""];
 
   //generating the plant cards and inserting them into vars
   $vars["products"] =  $content->card_html($plants);
 
   //generating the dropdowns and inserting them into vars
-  $vars["dropdown"] = $content->dropdown_html($dropdown_content);
+  //$vars["dropdown"] = $content->dropdown_html($dropdown_content);
 
   //generating the checkout and inserting them into vars
   $vars["checkout"] = $content->checkout_html();

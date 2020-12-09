@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-19 11:57:49
+/* Smarty version 3.1.34-dev-7, created on 2020-12-08 13:33:59
   from 'D:\inetpub\www\plants\templates\admin.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb65dbd667ec6_45327166',
+  'unifunc' => 'content_5fcf80c78528f2_04587961',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40dd52ec33c687da84e6a38d4492729cb66c46be' => 
     array (
       0 => 'D:\\inetpub\\www\\plants\\templates\\admin.html',
-      1 => 1605787067,
+      1 => 1607434437,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fb65dbd667ec6_45327166 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fcf80c78528f2_04587961 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,17 +46,18 @@ function content_5fb65dbd667ec6_45327166 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo $_smarty_tpl->tpl_vars['nav']->value;?>
 
     </nav>
-    <header>
-      <em>header</em>
-    </header>
+
     <section class="main">
-      <div class="orders">
+
+      <div style="display: grid;" class="orders">
         <div class="order_list"><?php echo $_smarty_tpl->tpl_vars['orders']->value;?>
 </div>
         <div class="customer_info"></div>
       </div>
-      <div class="statistics"></div>
-      <div class="new_product"></div>
+
+      <div style="display: none;" class="new_product"></div>
+      <div style="display: none;" class="statistics"><?php echo $_smarty_tpl->tpl_vars['statistics']->value;?>
+</div>
     </section>
   </main>
 </body>

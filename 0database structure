@@ -18,7 +18,7 @@ Customer
 Orders
  ->id [int] {primary}
  ->customer_id [int]
- ->ordered_items [varchar]
+ ->ordered_items [json]
  ->total_price [float]
 
 Street
@@ -39,3 +39,8 @@ Citys
 Countrys
   ->id [int] {primary}
   ->country_name
+
+Statistics
+  ->id [int] {primary}
+  ->ordered_items [json]
+  ->total_price [float]

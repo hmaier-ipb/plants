@@ -1,18 +1,9 @@
-/*
-Code for .card inspired from: https://github.com/developedbyed/3d-card-effect
-*/
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; /*bestimmt worauf sich Abmessungen beziehen*/
 }
-/*
-eigentlich ist das parent element für .top & .bot <body>.
-in Firefox funktioniert <body> als parent element nicht.
-wenn man jedoch scroll-snap-type auf <html> anwendet funktioniert der scrolling effekt.
-sehr mystisch...
-*/
+
 html{
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -26,119 +17,33 @@ body{
   );
   overflow-x: hidden;
   overflow-y: scroll;
-}
-
-.top{
-  scroll-snap-align: start;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  grid-template-areas: "products_container shopping_cart";
 
 }
 
-.bot{
-  scroll-snap-align: start;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  transition: 0.3s;
-}
-
-/*DROPDOWN MENU located in .top*/
-.dropdown_container{
-  /*the following three lines position the dd-menu
-  at the upperleft side of the screen*/
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.dropdown{
-  position: relative;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-.dropdown button{
-  background-color: #335ae8;
-  border: none;
-  color: white;
-  padding: 1.5rem 3rem;
+.products_container{
+  grid-area: products_container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 1rem;
 
 }
 
 
-.dropdown_col {
-  display: none;
-  position: absolute;
-  background-color: #1961d4;
-  padding: 1rem;
-  z-index: 1;
-
-}
-
-.dropdown_row{
-  color: black;
-  padding: 2rem;
-  display: block;
-}
-
-.dropdown:hover .dropdown_col{
-  display: block;
-}
-
-/*middle of the screen element*/
-.center{
-  height: 10vh;
-  width: 10vh;
-  background-color: #0BCDCA;
-  border-radius: 0px 50px 0px 50px;
-  transition: 1s;
-}
-
-.center:hover{
-  transform: rotate(45deg);
-}
-
-/*PRODUCT CARD located in .bot*/
-/*scroll parent*/
-.scroll-container{
-  display: block;
-  height: 100vh;
-  width: 100vh;
-  /*background-color: #1961d4;*/
-  overflow-x: scroll;
-  text-align: center;
-  /*scroll-snap-type: y mandatory;*/
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /*hiddes the scrollbar but lets still scroll the page*/
-  transform: rotate(-90deg);/*rotate the conatiner 90 deg counterclockwise*/
-
-
-}
-
-/*scroll child*/
 .card{
   display: inline-block;
-  height: 100%;
+  height: 100vh;
   scroll-snap-align: start;
   background-color: darkgoldenrod;
-  width: 100%;
+  width: 95%;
   border-radius: 75px;
   padding: 5rem 5rem; /*top&bottom = 0rem, left&right = 5rem*/
+
   /*box-shadow: 0px 10px 20px rgba(79, 124, 119, 0.8);*/
   /*box-shadow: 40px 40px 20px rgba(79, 124, 119, 0.8);*/ /* offset-x | offset-y | blur-radius | color */
-  transform: rotate(90deg); /*rotate the card 90deg clockwise*/
+  /*transform: rotate(90deg); /*rotate the card 90deg clockwise*/
 }
 
 .plant{
@@ -153,7 +58,7 @@ body{
   width: 25rem;
   height: 25rem;
   background: linear-gradient(
-  to top, #856936, #f5b638
+    to top, #856936, #f5b638
   );
   border-radius: 50%;
   display: flex;
@@ -196,20 +101,21 @@ body{
   color: bisque;
 }
 
-/*warenkorb sidebar*/
-
-/*cart_items is the whole container*/
 .cart_items{
+  grid-area: shopping_cart;
   display: none;
   height: auto;
   width: auto;
   background-color: darkgoldenrod;
   text-align: center;
   overflow-y: auto;
-  position: absolute;
+  scrollbar-width: none;
+  position: fixed;
   right: 0;
+  top: 5%;
   border-radius: 12px;
   padding: 1rem;
+
 }
 
 .cart-row{
@@ -294,13 +200,11 @@ body{
   color: bisque;
 }
 
-
-/*CheckoutDiv*/
 .checkout-div{
-  scroll-snap-align: start;
-  display: block;
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
   height: 100vh;
-  width: 100vh;
+  width: 100%;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
@@ -309,6 +213,7 @@ body{
 
 /*Styling for the Customer Info */
 .customer-info{
+  grid-column: 2/3;
   width: 100%;
   height: 100%;
   background-color: darkgoldenrod;
@@ -362,11 +267,3 @@ body{
   background-color: #33adff;
   color: bisque;
 }
-
-
-
-
-
-
-
-
