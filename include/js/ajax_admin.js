@@ -41,6 +41,8 @@ function removeOrderEventListener(){
 
 }
 
+/*creates eventlisteners for the navbar_btns for switching divs*/
+
 function navButtonsEventListener(){
   var nav_buttons = $("nav");
   var nav_ids = [];

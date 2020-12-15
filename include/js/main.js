@@ -3,7 +3,7 @@ function init_main() {
   //this function get initiated when the content of the page is loaded
 
   //add an event listener to all addToCartButtons (in every product-card)
-  var addToCartButtons = document.getElementsByClassName("add-to-cart-buttons");
+  var addToCartButtons = document.getElementsByClassName("add-to-cart-btns");
   for (var i = 0; i < addToCartButtons.length; i++) {
     //the [i] ensures that every button in the "add-to-class-buttons"-Class gets an eventlistener by itself
     //[i] = on what iteration we are right now
@@ -95,7 +95,7 @@ function removeFromCartClicked(event) {
 
 
 function switchDivsCheckout(){
-  //switchting divs by changing the display style when pressing checkout
+  //switchting divs by changing the DISPLAY.STYLE when pressing checkout
   var products_container = document.getElementsByClassName("products_container")[0];
   var checkoutDiv = document.getElementsByClassName("checkout-div")[0];
   var checkoutButton = document.getElementsByClassName("checkout_button")[0];
@@ -108,7 +108,6 @@ function switchDivsCheckout(){
   }else{
     products_container.style.display = "none";
     checkoutDiv.style.display = "grid";
-
   }
 }
 
@@ -136,7 +135,7 @@ function addItemToCart(title, price, imageSrc) {
   var cart_items1 = document.getElementsByClassName("cart_items")[0];
   var cartItemTitles = cart_items1.getElementsByClassName("item-title");
 
-  //this for loop gets a hold of redundant cart-rows
+  //this for loop gets a hold of redundant cart rows
   //return if title is already existing
   for (var i = 0; i < cartItemTitles.length; i++) {
     if (cartItemTitles[i].innerText === title) {
@@ -148,10 +147,10 @@ function addItemToCart(title, price, imageSrc) {
     <div class="cart-row">
       <div class="item-column cart-column">
         <img class="item-image" src="${imageSrc}" width="75" height="75">
-        <span class="item-title" value="${title}">${title}</span>
+        <span class="item-title" >${title}</span>
       </div>
       <div class="price-column cart-column">
-        <span class="item-price" value="${price}">${price}EUR</span>
+        <span class="item-price">${price}EUR</span>
       </div>  
       <div class="quantity-column cart-column">
         <input class="quantity-input" type="number" value="1" name="quantity">
@@ -223,5 +222,5 @@ function quantityChanged(event) {
 
 //regex validation of checkout-div inputs
 function checkoutValidation(){
-  //TODO
+  //TODO: use regex to validate user-input. create feedback icons.
 }

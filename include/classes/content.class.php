@@ -2,7 +2,7 @@
 
 /**
  *
- *content.class.php is responsible for creating redundant HTML elements
+ *elements.class.php is responsible for creating redundant HTML elements
  *the functions are giving out strings, containing HTML tags
  *input variables for the functions are different kind of arrays
  *
@@ -28,18 +28,14 @@ class content
       $description = $info[2];
       $price = $info[3];
       $output .= "<div class='card'>
-            <div class='info'>
-            <div class='plant'>
-                <div class='circle'><img class='product-image' src='/plants/include/media/$image' alt='image'></div>
-            </div>
-                <h1 class='title'>$plantname</h1>
-                <h3>$description</h3>
-                <div class='price'>Price: <b>$price</b> EUR</div>
-                <div class='add_to_cart_container'>
-                    <button class='add-to-cart-buttons'>Add to Cart</button>
-                </div>
-            </div>
-          </div>";
+                    <div class='info'>
+                    <div class='plant'><div class='circle'><img class='product-image' src='/plants/include/media/$image' alt='image'></div></div>
+                    <h1 class='title'>$plantname</h1>
+                    <h3>$description</h3>
+                    <div class='price'>Price: <b>$price</b> EUR</div>
+                    <button class='add-to-cart-btns'>Add to Cart</button>
+                    </div>
+                   </div>";
 
     }
     //$output .= "</div>";
